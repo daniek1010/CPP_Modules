@@ -1,7 +1,6 @@
 #include "phonebook.hpp"
 
-bool	allDigit(std::string input)
-{
+bool	allDigit(std::string input){
 	for (int i = 0; i < (int) input.length(); i++){
 		if (!isdigit(input[i]))
 			return false;
@@ -9,14 +8,13 @@ bool	allDigit(std::string input)
 	return true;
 }
 
-std::string truncat_10(std::string str){
+const std::string truncat_10(std::string str){
 	if (str.length() > 10)
 		return str.substr(0, 9) + ".";
 	return (str);
 }
 
-void print_contact(Contact contact)
-{
+void print_contact(Contact contact){
 	std::cout << std::endl;
 	std::cout << "First name: " << contact.getFirstName() << std::endl;
 	std::cout << "Last name: " << contact.getLastName() << std::endl;
@@ -26,43 +24,70 @@ void print_contact(Contact contact)
 	std::cout << std::endl;
 }
 
+bool	add_infos(const std::string &str, std::string &input){
+	std::cout << str;
+	while (std::getline(std::cin, input))
+	{
+		if (input.empty())
+		{
+			std::cout << str;
+			continue ;
+		}
+		return (true);
+	}
+	std::cout << std::endl;
+	std::cin.clear();
+	std::cin.putback('\n');
+	return (false);
+}
+
 void PhoneBook::add_contact(){
 	Contact	contact;
 	std::string input;
 
-	std::cout << "First name: ";
-	std::getline(std::cin, input);
+	if (!add_infos("First name: ", input))
+		return ;
 	contact.setFirstName(input);
-
-	std::cout << "Last name: ";
-	std::getline(std::cin, input);
+	if (!add_infos("Last name: ", input))
+		return ;
 	contact.setLastName(input);
-
-	std::cout << "Nick name: ";
-	std::getline(std::cin, input);
+	if (!add_infos("Nick name: ", input))
+		return ;
 	contact.setNickName(input);
-
 	while(1){
-	std::cout << "📞 Phone number bitte: ";
-	std::getline(std::cin, input);
-		if(!allDigit(input))
-		{
-			std::cin.clear();
-			std::cout << "Enother Digit only" << std::endl;
-			continue;
+		if (add_infos("📞 Phone number bitte: ", input)){
+			if(!allDigit(input)){
+				std::cin.clear();
+				std::cout << "Enother Digit only" << std::endl;
+				continue;
+			}
+			contact.setPhoneNumber(input);
+			break;
 		}
-		contact.setPhoneNumber(input);
-		break;
+		else
+			return ;
 	}
-	std::cout << "Tell me a secret, I've got the MEGAPHONE READY LOL: ";
-	std::getline(std::cin, input);
+	if (!add_infos("Tell me a secret, I've the MEGAPHONE READY LOL: ", input))
+		return ;
 	contact.setDarkestSecret(input);
 	contacts[index] = contact;
 	index = (index + 1) % MAX_CONTACT;
 	if (count < MAX_CONTACT){
 		count++;
 	}
-	std::cout << "Contact added successfully ✅" << std::endl;
+
+	std::cout << "Contact added successfully ✅[" << count << "|" << MAX_CONTACT << "]" << std::endl;
+}
+
+int isAlphabetic(const std::string& str){
+	int i = 0;
+	while (str[i] != '\0')
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 void PhoneBook::search_pb(){
@@ -82,16 +107,23 @@ void PhoneBook::search_pb(){
 
 	std::string display_index;
 	int convert_index;
-	std::cout << "Enter contact to display: " << std::endl;
-	std::getline(std::cin, display_index);
 	while (1){
-		convert_index = atoi(display_index.c_str());
-		if (convert_index >= 0 && convert_index < count){
-			break;
+		if (!add_infos("Enter contact to display: ", display_index))
+			return ;
+		if (strcmp(display_index.c_str(), "exit") == 0){
+			return ;
 		}
-		std::cin.clear();
-		std::cout << "Enter contact to display: " << std::endl;
-		std::getline(std::cin, display_index);
+		else if (!isAlphabetic(display_index))
+			std::cout << "ENTER NUMBER ONLY" << std::endl;
+		else
+		{
+			convert_index = atoi(display_index.c_str());
+			std::cout << convert_index << std::endl;
+			if (convert_index >= 0 && convert_index < count){
+				break;
+			}
+			std::cout << "ENTER AVAILABLE CONTACT" << std::endl;
+		}
 	}
 	print_contact(contacts[convert_index]);
 }

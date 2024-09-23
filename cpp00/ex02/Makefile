@@ -1,4 +1,4 @@
-NAME = phonebook
+NAME = account
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
 SRCS = $(wildcard *.cpp)
@@ -21,4 +21,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-# .SILENT:
+.SILENT:

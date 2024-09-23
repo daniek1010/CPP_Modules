@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/22 12:29:35 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/22 13:12:04 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include <iostream>
 # include <cstdlib>
 
-int main (int ac, char *argv[])
-{
+int main (int ac, char *argv[]){
 	if (ac == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else
@@ -16,5 +27,5 @@ int main (int ac, char *argv[])
 		}
 	}
 	std::cout << std::endl;
-	return (EXIT_SUCCESS);
+	return (0);
 }
