@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/23 21:41:25 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/23 21:41:33 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "phonebook.hpp"
 
 void displayWelcome(void){
@@ -17,8 +29,8 @@ bool	getInput(std::string &input){
 	while(1){
 		std::cout <<  "Hello, enter an option (ADD, SEARCH, EXIT): " << std::endl;
 		if (std::getline(std::cin, input)){
-			if (input == "ADD" || input == "add" || input == "SEARCH" 
-					|| input == "search" || input == "EXIT" || input == "exit")
+			std::transform(input.begin(), input.end(), input.begin(), ::toupper);
+			if (input == "ADD" || input == "SEARCH" || input == "EXIT")
 				return (true);
 			std::cout << "Invalid option, please try again." << std::endl;
 		}
@@ -41,9 +53,9 @@ int main(void)
 			std::cout << "Exiting ... " << std::endl;
 			break ;
 		}
-		if (input == "ADD" || input == "add")
+		if (input == "ADD")
 			phone.add_contact();
-		else if (input == "SEARCH" || input == "search")
+		else if (input == "SEARCH")
 			phone.search_pb();
 		else
 		{

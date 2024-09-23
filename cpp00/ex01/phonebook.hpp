@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/23 21:41:45 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/23 21:41:46 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string>
 #include <cstring> 
 #include <iostream>
@@ -5,6 +17,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <limits>
+#include <algorithm>
 #include "contact.hpp"
 
 #define MAX_CONTACT 2

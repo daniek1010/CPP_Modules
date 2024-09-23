@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/23 21:41:06 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/23 21:41:07 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "phonebook.hpp"
 
 bool	allDigit(std::string input){
@@ -110,7 +122,8 @@ void PhoneBook::search_pb(){
 	while (1){
 		if (!add_infos("Enter contact to display: ", display_index))
 			return ;
-		if (strcmp(display_index.c_str(), "exit") == 0){
+		std::transform(display_index.begin(), display_index.end(), display_index.begin(), ::toupper);
+		if (strcmp(display_index.c_str(), "EXIT") == 0){
 			return ;
 		}
 		else if (!isAlphabetic(display_index))
