@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/23 21:56:33 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/25 12:30:34 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 #define DEBUG "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!"
@@ -24,33 +36,34 @@ void	Harl::error( void ){
 }
 
 void	Harl::complain( std::string level ){
-	harlPtr harlPtrs[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	for (size_t i = 0; i < levels->size(); i++){
-		if (level == levels[i]){
+	funcPtr myfuncPtrs[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string level_complains[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	for (size_t i = 0; i < level_complains->size(); i++){
+		if (level == level_complains[i]){
+			
 			switch (i){
 				case 0:
-					(this->*harlPtrs[0])();
-					(this->*harlPtrs[1])();
-					(this->*harlPtrs[2])();
-					(this->*harlPtrs[3])();
+					(this->*myfuncPtrs[0])();
+					(this->*myfuncPtrs[1])();
+					(this->*myfuncPtrs[2])();
+					(this->*myfuncPtrs[3])();
 					break;
 				case 1:
-					(this->*harlPtrs[1])();
-					(this->*harlPtrs[2])();
-					(this->*harlPtrs[3])();
+					(this->*myfuncPtrs[1])();
+					(this->*myfuncPtrs[2])();
+					(this->*myfuncPtrs[3])();
 					break;
 				case 2:
-					(this->*harlPtrs[2])();
-					(this->*harlPtrs[3])();
+					(this->*myfuncPtrs[2])();
+					(this->*myfuncPtrs[3])();
 					break;
 				case 3:
-					(this->*harlPtrs[3])();
+					(this->*myfuncPtrs[3])();
 					break;
 				default:
 					break;
 				}
-			return ;
+		return ;
 		}
 	}
 	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;

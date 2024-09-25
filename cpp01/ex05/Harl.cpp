@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/23 21:56:20 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/25 12:18:58 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 #define DEBUG "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!"
@@ -20,13 +32,12 @@ void	Harl::error( void ){
 }
 
 void	Harl::complain( std::string level ){
-	harlPtr harlPtrs[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::string levels[] = {"debug", "info", "warning", "error"};
-	for (size_t i = 0; i < levels->size(); i++){
-		if (level == levels[i]){
-			(this->*harlPtrs[i])();
+	funcPtrs myfuncPtrs[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error}; 
+	std::string level_complains[] = {"debug", "info", "warning", "error"};
+	for (size_t i = 0; i < level_complains->size(); i++){
+		if (level == level_complains[i]){
+			(this->*myfuncPtrs[i])();
 			return ;
 		}
 	}
 }
-

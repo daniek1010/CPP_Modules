@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/23 21:56:24 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/25 12:11:18 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef HARL_HPP
 # define HARL_HPP
 
@@ -14,6 +26,6 @@ class Harl{
 		void	error( void );
 };
 
-typedef void (Harl::* harlPtr)(void);
+typedef void (Harl::* funcPtrs)(void);
 
 #endif

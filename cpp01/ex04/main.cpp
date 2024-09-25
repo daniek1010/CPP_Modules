@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/23 21:56:06 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/25 10:44:01 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -22,7 +34,7 @@ int main (int ac, char *argv[]){
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
 	std::string newFile = filename + ".replace";
-
+	
 	std::ifstream inputFile(filename.c_str());
 	if (!inputFile){
 		std::cerr << "Error, couldnt open file" << std::endl;
@@ -36,6 +48,6 @@ int main (int ac, char *argv[]){
 		std::cerr << "Error, couldnt create file" << std::endl;
 		return 1;
 	}
-	outputFile << file_content + "goat";
+	outputFile << file_content;
 	outputFile.close();
 }

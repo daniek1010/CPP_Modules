@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/23 21:55:02 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/25 08:54:33 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
 
@@ -16,5 +28,6 @@ class Zombie{
 };
 
 Zombie* zombieHorde( int N, std::string name );
+// Zombie* zombieHorde_diff_names( int N, std::string names[] );
 
 #endif
