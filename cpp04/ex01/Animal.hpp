@@ -1,14 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/27 02:30:48 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/27 02:30:49 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
 #include <iostream>
 #include <string>
-// #include "Brain.hpp"
-
 
 class Animal {
-protected:
-	std::string type;
 public:
 	Animal(void);
 	Animal(const Animal &to_copy);
@@ -17,14 +25,8 @@ public:
 	std::string getType()const;
 	void setType(std::string type);
 	virtual void makeSound() const;
+protected:
+	std::string type;
 };
-
-// Animal::Animal(/* argrotected{
-// }
-
-// Animal::~Animal()
-// {
-// }
-
 
 #endif

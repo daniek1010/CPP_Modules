@@ -5,39 +5,32 @@ using std::endl;
 
 int main(void)
 {
-	cout << sizeof(FragTrap) << endl;
-	cout << sizeof(ClapTrap) << endl;
-	FragTrap evaluator1("Foo ");
-	FragTrap evaluator2("Bar ");
-
-	cout << endl;
+	FragTrap evaluator1("Bar ");
 
 	evaluator1.attack("evaluator2");
-	evaluator2.takeDamage(90);
-
-	cout << endl;
-	cout << endl;
+	evaluator1.takeDamage(90);
 
 	evaluator1.attack("evaluator2");
-	evaluator2.takeDamage(1);
+	evaluator1.takeDamage(100);
 
 	cout << endl;
-	cout << endl;
 
-	evaluator1.attack("evaluator2");
-	evaluator2.takeDamage(1);
+		// for (int i = 0; i < 10; i++)
+	// 	evaluator1.attack("Bar");
+	// evaluator1.attack("Bar");
+	
+	// evaluator1.guardGate();
+	// cout << endl;
+	// for (int i = 0; i < 10; i++)
+	// 	evaluator1.beRepaired(10);
+	// evaluator1.takeDamage(10);
+	// evaluator1.attack("Bar");
+	// evaluator1.attack("another_bar");
+	// evaluator1.beRepaired(10);
+	
+	// for (int i = 0; i < 10; i++)
+	// 	evaluator1.attack("Bar");
 	evaluator1.highFivesGuys();
-
-	cout << endl;
-
-	evaluator2.beRepaired(100);
-
-	cout << endl;
-
-	evaluator1.attack("again");
-	evaluator2.takeDamage(10);
-
-	cout << endl;
 
 	return 0;
 }

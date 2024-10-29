@@ -1,22 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/26 23:55:40 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/26 23:55:41 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap (name){
-	hitPoints = 100;
+FragTrap::FragTrap() : ClapTrap() {
+	std::cout << "FragTrap: defaults derived class" << std::endl;
+	hitPoints = 100; 
 	energyPoints = 100;
 	attackDamage = 30;
-	std::cout << "Default sub class <FragTrap>" << std::endl;
+}
+
+FragTrap::FragTrap(std::string name) : ClapTrap (name){
+	std::cout << "FragTrap: parameterized derived class" << std::endl;
+	hitPoints = 100; 
+	energyPoints = 100;
+	attackDamage = 30;
 }
 
 FragTrap::~FragTrap(){
-	std::cout << "Mayday Mayday! Destructor <FragTrap> called " << std::endl;
+	std::cout << "FragTrap: Mayday Mayday! Destructor called " << std::endl;
 }
 
 void	FragTrap::highFivesGuys(void){
 	if (energyPoints == 0){
-		std::cout << "ClapTrap enery <FragTrap> kaput " << std::endl;
+		std::cout << "FragTrap: energy empty " << std::endl;
 		return ;
 	}
 	energyPoints -= 1;
-	std::cout << "FragTrap " << name << "attack " <<
-	"HIGH FIVE!  ahahahahaha " << std::endl;
+	std::cout << "FragTrap: " << "HIGH FIVE!  🖐️ 🖐️ " << std::endl;
 }

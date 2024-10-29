@@ -1,14 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/26 23:49:13 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/26 23:55:32 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap() : ClapTrap() {
+	std::cout << "Scavtrap : Default derived constructor " << std::endl;
+	hitPoints = 100; 
+	energyPoints = 50;
+	attackDamage = 20;
+}
+
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-	setenergyPoints(50);
-	sethitPoints(100);
-	setattackdammagePoints(20);
-	std::cout << "Default sub class <scavtrap>" << std::endl;
+	std::cout << "Scavtrap : Parameterized derived constructor " << std::endl;
+	hitPoints = 100; 
+	energyPoints = 50;
+	attackDamage = 20;
 }
 
 ScavTrap::~ScavTrap(){
-	std::cout << "Mayday Mayday! Destructor <scavtrap> called " << std::endl;
+	std::cout << "Scavtrap : Mayday Mayday! Destructor " << std::endl;
 }
 
 void	ScavTrap::guardGate(){
@@ -16,14 +36,11 @@ void	ScavTrap::guardGate(){
 }
 
 void	ScavTrap::attack(const std::string& target){
-	int points = getenergyPoints();
-	if (points == 0){
-		std::cout << "ClapTrap enery kaput " << std::endl;
+	if (energyPoints == 0 || hitPoints == 0){
+		std::cout << "ScavTrap: enery energyPoint empty " << std::endl;
 		return ;
 	}
-	points -= 1;
-	setenergyPoints(points);
-	std::cout << "ScavTrap <subclass>" << getname() << "attack " << target <<
-	"  ahahahahaha " << std::endl;
-
+	energyPoints -= 1;
+	std::cout << "ScavTrap: " << name << "attack " << target << " causing " 
+	<< attackDamage << "  points of damage 😈 " << std::endl;
 }

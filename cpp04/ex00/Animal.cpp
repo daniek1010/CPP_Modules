@@ -5,21 +5,20 @@ Animal::Animal(void){
 }
 
 Animal::Animal(const Animal &to_copy){
-	*this = to_copy;
 	std::cout << "<ANIMAL> Copy constructor called " << std::endl;
+	type = to_copy.type;
 }
 
 Animal& Animal::operator=(const Animal &other){
+	std::cout << "<ANIMAL> Copy assignment constructor called " << std::endl;
 	if (this != &other){
 		type = other.type;
 	}
-	std::cout << "<ANIMAL> Copy assignment constructor called " << std::endl;
 	return *this;
 }
 
 Animal::~Animal(){
 	std::cout << "<ANIMAL> Destructor called " << std::endl;
-
 }
 
 void Animal::makeSound() const{

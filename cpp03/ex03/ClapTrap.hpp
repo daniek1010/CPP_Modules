@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/26 22:56:27 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/26 22:56:28 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
@@ -5,11 +17,6 @@
 #include <string>
 
 class ClapTrap{
-protected:
-	std::string name;
-	unsigned int hitPoints;
-	unsigned int energyPoints;
-	unsigned int attackDamage;
 public:
 	ClapTrap();
 	ClapTrap(std::string name);
@@ -19,6 +26,12 @@ public:
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
+
+protected:
+	std::string name;
+	unsigned int hitPoints;
+	unsigned int energyPoints;
+	unsigned int attackDamage;
 };
 
 

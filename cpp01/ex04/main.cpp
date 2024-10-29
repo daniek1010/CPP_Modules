@@ -6,7 +6,7 @@
 /*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 21:56:06 by danevans          #+#    #+#             */
-/*   Updated: 2024/09/25 10:44:01 by danevans         ###   ########.fr       */
+/*   Updated: 2024/09/25 20:43:04 by danevans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ int main (int ac, char *argv[]){
 	std::string filename = argv[1] ;
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
+	if (s1.empty() || s2.empty() || filename.empty()) {
+		std::cerr << "Error, empty" << std::endl;
+		return 1;
+	}
 	std::string newFile = filename + ".replace";
-	
 	std::ifstream inputFile(filename.c_str());
 	if (!inputFile){
 		std::cerr << "Error, couldnt open file" << std::endl;

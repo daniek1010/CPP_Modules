@@ -7,6 +7,7 @@ Fixed::Fixed(void) : value(0){
 Fixed::Fixed(const int intValue)
 : value(intValue * (1 << Fixed::bits)){
 	std::cout << "Parameterized Int constructor called " << std::endl;
+	std::cout << "\n" << value << std::endl;
 }
 
 Fixed::Fixed(const float floatvalue)
@@ -16,12 +17,13 @@ Fixed::Fixed(const float floatvalue)
 
 Fixed::Fixed(const Fixed &to_copy){
 	std::cout << "Copy assignment called " << std::endl;
-	*this = to_copy;
+	this->value = to_copy.value;
 }
 
 Fixed& Fixed::operator=(const Fixed &other){
 	std::cout << "Copy assignmemnt operator called " << std::endl;
-	setRawBits(other.getRawBits());
+	if (this != &other)
+		this->value = other.getRawBits();
 	return *this;
 }
 
@@ -41,17 +43,16 @@ void	Fixed::setRawBits(int const raw){
 
 float	Fixed::toFloat( void ) const{
 	// std::cout << "toFloat Function called " << std::endl;
-	return (float) value / (1 << bits);
+	return (float) value / (1 << Fixed::bits);
 }
 
 int		Fixed::toInt( void ) const{
 	// std::cout << "toInt Function called " << std::endl;
-	return  value / (1 << bits);
+	return  value / (1 << Fixed::bits);
 }
 
 std::ostream &operator<<(std::ostream &stream, const Fixed &nbr)
 {
-	// std::cout << " <<<<<<<<<<<<< " << std::endl;
 	stream << nbr.toFloat();
 	return stream;
 }

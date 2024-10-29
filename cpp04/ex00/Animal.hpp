@@ -6,8 +6,6 @@
 
 
 class Animal {
-protected:
-	std::string type;
 public:
 	Animal(void);
 	Animal(const Animal &to_copy);
@@ -16,14 +14,8 @@ public:
 	std::string getType()const;
 	void setType(std::string type);
 	virtual void makeSound() const;
+protected:
+	std::string type;
 };
-
-// Animal::Animal(/* argrotected{
-// }
-
-// Animal::~Animal()
-// {
-// }
-
 
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/26 23:42:13 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/26 23:42:14 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 using std::cout;
@@ -5,39 +17,30 @@ using std::endl;
 
 int main(void)
 {
-	cout << sizeof(ScavTrap) << endl;
-	cout << sizeof(ClapTrap) << endl;
 	ScavTrap evaluator1("Foo ");
-	ScavTrap evaluator2("Bar ");
 
+	// for (int i = 0; i < 10; i++)
+	// 	evaluator1.attack("Bar");
+	// evaluator1.attack("Bar");
+	
+	// evaluator1.guardGate();
+	// cout << endl;
+	// for (int i = 0; i < 10; i++)
+	// 	evaluator1.beRepaired(10);
+	// evaluator1.takeDamage(10);
+	// evaluator1.attack("Bar");
+	// evaluator1.attack("another_bar");
+	// evaluator1.beRepaired(10);
+	
+	// for (int i = 0; i < 10; i++)
+	// 	evaluator1.attack("Bar");
+
+	evaluator1.attack("Foo");
 	cout << endl;
-
-	evaluator1.attack("evaluator2");
-	evaluator2.takeDamage(90);
-
+	evaluator1.takeDamage(100);
 	cout << endl;
-	cout << endl;
-
-	evaluator1.attack("evaluator2");
-	evaluator2.takeDamage(1);
-
-	cout << endl;
-	cout << endl;
-
-	evaluator1.attack("evaluator2");
-	evaluator2.takeDamage(1);
+	evaluator1.beRepaired(500);
 	evaluator1.guardGate();
-
-	cout << endl;
-
-	evaluator2.beRepaired(100);
-
-	cout << endl;
-
-	evaluator1.attack("again");
-	evaluator2.takeDamage(10);
-
-	cout << endl;
 
 	return 0;
 }
