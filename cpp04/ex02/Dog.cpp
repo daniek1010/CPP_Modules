@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/27 13:00:14 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/27 13:01:30 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
 Dog::Dog(void) : Animal (){
-	type = ("Dog");
 	std::cout << "<DOG> Default constructor called " << std::endl;
+	type = ("Dog");
 	brain = new Brain();
-	// std::cout << "<DOG> Default constructor called " << std::endl;
 }
 
 Dog::Dog(const Dog &to_copy) : Animal(to_copy){

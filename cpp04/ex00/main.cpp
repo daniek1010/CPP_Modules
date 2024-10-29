@@ -32,24 +32,24 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	// const Animal* meta = new Animal();
+	// const Animal* i = new Cat();
+	// const Animal* j = new Dog();
 
-	std::cout << "\nAnimal testing" << std::endl;
-	std::cout << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
+	// std::cout << "\nAnimal testing" << std::endl;
+	// std::cout << std::endl;
+	// std::cout << i->getType() << " " << std::endl;
+	// std::cout << j->getType() << " " << std::endl;
 
-	std::cout << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+	// std::cout << std::endl;
+	// i->makeSound(); //will output the cat sound!
+	// j->makeSound();
+	// meta->makeSound();
 
-	std::cout << std::endl;
-	delete meta;
-	delete j;
-	delete i;
+	// std::cout << std::endl;
+	// delete meta;
+	// delete j;
+	// delete i;
 
 	std::cout << "\nWrong Animal testing\n" << std::endl;
 	WrongAnimal	*wrongAnimal = new WrongAnimal;
@@ -57,7 +57,7 @@ int main()
 
 	std::cout << "\nWrongAnimal: ";
 	wrongAnimal->makeSound();
-	std::cout << "WrongCat: ";
+	std::cout << "WrongCat should be making a sound " << std::endl;
 	wrongCat->makeSound();
 	std::cout << std::endl;
 	delete wrongAnimal;

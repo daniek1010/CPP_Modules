@@ -6,16 +6,11 @@
 /*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 21:54:52 by danevans          #+#    #+#             */
-/*   Updated: 2024/09/25 09:21:50 by danevans         ###   ########.fr       */
+/*   Updated: 2024/09/25 13:05:32 by danevans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
-#include <cctype>
-#include <string>
-#include <algorithm>
-
 
 int main(){
 	int i, N;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danevans <danevans@student.42.f>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/26 22:56:41 by danevans          #+#    #+#             */
+/*   Updated: 2024/09/27 01:05:31 by danevans         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
@@ -6,14 +18,10 @@
 
 class FragTrap : virtual public ClapTrap{
 	public:
-		FragTrap(void);
+		FragTrap();
 		FragTrap(std::string name);
 		~FragTrap();
 		void	highFivesGuys(void);
-		
-		static const int defaultHitPoints = 100;
-		static const int defaultEnergyPoints = 100;
-		static const int defaultAttackPoints = 30;
 };
 
 #endif

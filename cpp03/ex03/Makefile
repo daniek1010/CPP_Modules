@@ -18,9 +18,8 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f *.replace
 
 re: fclean all
 
 .PHONY: all clean fclean re
-.SILENT:
+# .SILENT:

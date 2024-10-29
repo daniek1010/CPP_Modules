@@ -15,5 +15,10 @@ std::cout << "a is " << a.toInt() << " as integer" << std::endl;
 std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+std::cout << "\n" << std::endl;
+std::cout << "a is " << a.toFloat() << " as flaot" << std::endl;
+std::cout << "b is " << b.toFloat() << " as flaot" << std::endl;
+std::cout << "c is " << c.toFloat() << " as flaot" << std::endl;
+std::cout << "d is " << d.toFloat() << " as flaot" << std::endl;
 return 0;
 }

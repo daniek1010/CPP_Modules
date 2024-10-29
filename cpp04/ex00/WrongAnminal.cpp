@@ -5,15 +5,15 @@ WrongAnimal::WrongAnimal(void){
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &to_copy){
-	*this = to_copy;
+	type = to_copy.type;
 	std::cout << "<WrongAnimal> Copy constructor called " << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other){
+	std::cout << "<WrongAnimal> Copy assignment constructor called " << std::endl;
 	if (this != &other){
 		type = other.type;
 	}
-	std::cout << "<WrongAnimal> Copy assignment constructor called " << std::endl;
 	return *this;
 }
 
