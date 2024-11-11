@@ -6,50 +6,60 @@
 /*   By: danevans <danevans@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 13:20:27 by danevans          #+#    #+#             */
-/*   Updated: 2024/11/05 20:31:33 by danevans         ###   ########.fr       */
+/*   Updated: 2024/11/11 13:46:52 by danevans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "AForm.hpp"
 
-void	signingFormwitDefault(void){
-	AForm *test = new ShrubberyCreationForm("checker");
-	AForm dan();
-	
-	ShrubberyCreationForm form("daniel");
-	Bureaucrat dan("Mr Evans ", 17);
+void	formShruberry(Bureaucrat &bureaucrat){
+	AForm *form = new ShrubberyCreationForm("target");
+	form->beSigned(bureaucrat);
 	try{
-		std::cout << form << std::endl;
-		form.beSigned(dan);	
-	} catch (const Form::GradeTooHighException &high){
+		bureaucrat.executeForm(*form);
+	} catch (const AForm::GradeTooHighException &high){
 		std::cerr << high.what() << std::endl;
-	} catch (const Form::GradeTooLowException &low){
+	} catch (const AForm::GradeTooLowException &low){
 		std::cerr << low.what() << std::endl;
 	}
-	//showing statues here;
-	form.signForm(dan);
+	delete form;
 }
 
-// void	signingFormwitAssignedValues(void){
-// 	Bureaucrat dan("Bureaucrat Evans ", 17);
-// 	Form form("Repairs", 12, 7);
-// 	try{
-// 		form.beSigned(dan);	
-// 	} catch (const Form::GradeTooHighException &high){
-// 		form.signForm(dan);
-// 		std::cerr << high.what() << std::endl;
-// 	} catch (const Form::GradeTooLowException &low){
-// 		form.signForm(dan);
-// 		std::cerr << low.what() << std::endl;
-// 	}
-// }
+void	formRobot(Bureaucrat &bureaucrat) {
+	AForm *form = new RobotomyRequestForm("robo");
+	form->beSigned(bureaucrat);
+	try{
+		bureaucrat.executeForm(*form);
+	} catch (const AForm::GradeTooHighException &high){
+		std::cerr << high.what() << std::endl;
+	} catch (const AForm::GradeTooLowException &low){
+		std::cerr << low.what() << std::endl;
+	}
+	delete form;
+}
+
+void	formPresidential(Bureaucrat &bureaucrat) {
+	AForm *form = new PresidentialPardonForm("president");
+	form->beSigned(bureaucrat);
+	try{
+		bureaucrat.executeForm(*form);
+	} catch (const AForm::GradeTooHighException &high){
+		std::cerr << high.what() << std::endl;
+	} catch (const AForm::GradeTooLowException &low){
+		std::cerr << low.what() << std::endl;
+	}
+	delete form;
+}
 
 int main (void){
-
-	signingFormwitDefault();
-	// signingFormwitAssignedValues();
+	Bureaucrat evans("Mr Evans ", 18);
+	formShruberry(evans);
+	formRobot(evans);
+	formPresidential(evans);
 	
 	return 0;
 }

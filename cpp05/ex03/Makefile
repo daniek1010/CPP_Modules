@@ -1,4 +1,4 @@
-NAME = bureaucrat
+NAME = intern
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I.
 SRCS = $(wildcard *.cpp)
@@ -17,6 +17,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f *_shrubbery 
 
 re: fclean all
 

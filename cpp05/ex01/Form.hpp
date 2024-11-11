@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                           :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danevans <danevans@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:47:23 by danevans          #+#    #+#             */
-/*   Updated: 2024/11/11 12:04:50 by danevans         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:50:46 by danevans         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,21 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
-class Bureaucrat;
-
-class AForm {
+class Form {
 	public:
-		AForm	(void);
-		AForm	(std::string name, int signGrade, int execGrade);
-		AForm	(const AForm &to_copy);
-		AForm	&operator=(const AForm &other);
+		Form	(void);
+		Form	(std::string name, int signGrade, int execGrade);
+		Form	(const Form &to_copy);
+		Form	&operator=(const Form &other);
 		void	beSigned(Bureaucrat &bureaucrat);
 		void	signForm(Bureaucrat &bureaucrat);
 		bool	getSignStatus() const;
 		int		getSignGrade() const;
 		int		getExecGrade() const;
 		std::string	getName() const;
-		virtual void execute(Bureaucrat const & executor) const = 0;
-		virtual ~AForm();
+		~Form();
 		class GradeTooHighException;
 		class GradeTooLowException;
-		class NotSignedException;
-		class FailureException;
 	private:
 		std::string _name;
 		int		_signGrade;
@@ -44,7 +39,7 @@ class AForm {
 		bool	_signStatus;
 };
 
-class AForm::GradeTooHighException :  public std::exception {
+class Form::GradeTooHighException :  public std::exception {
 	public:
 		GradeTooHighException(const std::string &name);
 		virtual const char* what() const throw();
@@ -53,9 +48,9 @@ class AForm::GradeTooHighException :  public std::exception {
 		std::string message;
 };
 
-class AForm::GradeTooLowException : public std::exception {
+class Form::GradeTooLowException : public std::exception {
 	public:
-		GradeTooLowException(const std::string &name, const std::string &form);
+		GradeTooLowException(const std::string &name);
 		virtual const char* what() const throw();
 		virtual ~GradeTooLowException() throw() {}
 
@@ -63,26 +58,6 @@ class AForm::GradeTooLowException : public std::exception {
 		std::string message;
 };
 
-class AForm::NotSignedException : public std::exception {
-	public:
-		NotSignedException(const std::string &name);
-		virtual const char* what() const throw();
-		virtual ~NotSignedException() throw() {}
-
-	private:
-		std::string message;
-};
-
-class AForm::FailureException : public std::exception {
-	public:
-		FailureException(const std::string &name, const std::string &str);
-		virtual const char* what() const throw();
-		virtual ~FailureException() throw() {}
-
-	private:
-		std::string message;
-};
-
-std::ostream &operator<<(std::ostream& os, AForm &form);
+std::ostream &operator<<(std::ostream& os, Form &form);
 
 #endif
